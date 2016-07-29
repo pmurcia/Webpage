@@ -1,0 +1,45 @@
+<% content_for :title, "Página principal" %>
+
+<% if flash[:notice] %>
+  <div class="success callout" data-closable>
+    <p id="notice"><%= notice %></p>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<!--<div class="row">-->
+  <h1>Listing Shoes</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @shoes.each do |shoe| %>
+        <tr>
+          <td><%= shoe.name %></td>
+          <td><%= shoe.description %></td>
+          <td><%= shoe.price %></td>
+          <td><%= image_tag(shoe.image) %></td>
+          <td><%= link_to 'Show', shoe %></td>
+          <td><%= link_to 'Edit', edit_shoe_path(shoe) %></td>
+          <td><%= link_to 'Destroy', shoe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<br>
+
+<%= link_to 'New Shoe', new_shoe_path %>
+<!--</div>
+-->

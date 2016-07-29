@@ -1,0 +1,33 @@
+<% content_for :title, "#{@shoe.name}" %>
+
+<% if flash[:notice] %>
+  <div class="success callout" data-closable>
+    <p id="notice"><%= notice %></p>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shoe.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shoe.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @shoe.price %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@shoe.image) %>
+</p>
+
+<%= link_to 'Edit', edit_shoe_path(@shoe) %> |
+<%= link_to 'Back', shoes_path %>

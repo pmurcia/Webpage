@@ -1,0 +1,39 @@
+<%= form_for(@shoe) do |f| %>
+  <% if @shoe.errors.any? %>
+
+    <div class="alert callout" data-closable>
+      <div id="error_explanation">
+        <h2><%= pluralize(@shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
+
+        <ul>
+        <% @shoe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
